@@ -119,6 +119,22 @@ class LinkedList {
     --this.size;
   }
 
+  removeDuplicate() {
+    let current, previous;
+    current = this.head;
+
+    while (current.next) {
+      previous = current.next;
+
+      if (current.data === previous.data) {
+        previous = current;
+        current = current.next;
+      }
+      console.log('136', current.data);
+      current = current.next;
+    }
+  }
+
   // clear the List
   clearList() {
     this.head = null;
@@ -131,7 +147,7 @@ class LinkedList {
 
     let current = this.head;
     while (current) {
-      console.log(current);
+      // console.log(current);
       console.log(current.data);
       current = current.next;
     }
@@ -140,11 +156,18 @@ class LinkedList {
 
 const nodeOne = new LinkedList();
 
+nodeOne.insertFirstNode(70);
+nodeOne.insertFirstNode(60);
+nodeOne.insertFirstNode(50);
+nodeOne.insertFirstNode(40);
+nodeOne.insertFirstNode(30);
+nodeOne.insertFirstNode(30);
+nodeOne.insertFirstNode(20);
 nodeOne.insertFirstNode(10);
-// nodeOne.insertFirstNode(20);
-nodeOne.insertLastNode(30);
+// nodeOne.insertLastNode(40);
 
-// nodeOne.insertAt(40, 1);
+// nodeOne.insertAt(50, 1);
+nodeOne.removeDuplicate();
 // nodeOne.removeAt(2);
 
 // nodeOne.clearList();

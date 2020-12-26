@@ -99,6 +99,19 @@ var LinkedList = /** @class */ (function () {
         }
         --this.size;
     };
+    LinkedList.prototype.removeDuplicate = function () {
+        var current, previous;
+        current = this.head;
+        while (current.next) {
+            previous = current.next;
+            if (current.data === previous.data) {
+                previous = current;
+                current = current.next;
+            }
+            console.log('136', current.data);
+            current = current.next;
+        }
+    };
     // clear the List
     LinkedList.prototype.clearList = function () {
         this.head = null;
@@ -109,7 +122,7 @@ var LinkedList = /** @class */ (function () {
         console.log('Size of LinkedList : ', this.size);
         var current = this.head;
         while (current) {
-            console.log(current);
+            // console.log(current);
             console.log(current.data);
             current = current.next;
         }
@@ -117,10 +130,17 @@ var LinkedList = /** @class */ (function () {
     return LinkedList;
 }());
 var nodeOne = new LinkedList();
+nodeOne.insertFirstNode(70);
+nodeOne.insertFirstNode(60);
+nodeOne.insertFirstNode(50);
+nodeOne.insertFirstNode(40);
+nodeOne.insertFirstNode(30);
+nodeOne.insertFirstNode(30);
+nodeOne.insertFirstNode(20);
 nodeOne.insertFirstNode(10);
-// nodeOne.insertFirstNode(20);
-nodeOne.insertLastNode(30);
-// nodeOne.insertAt(40, 1);
+// nodeOne.insertLastNode(40);
+// nodeOne.insertAt(50, 1);
+nodeOne.removeDuplicate();
 // nodeOne.removeAt(2);
 // nodeOne.clearList();
 nodeOne.printListData();
